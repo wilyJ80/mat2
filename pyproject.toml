@@ -1,0 +1,23 @@
+[project]
+name = "mat2"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "wilyJ80", email = "abjurandam@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "chainlit>=2.12.0",
+    "langchain>=1.4.2",
+    "langchain-google-genai>=4.4.0",
+    "langgraph>=1.2.12",
+    "pydantic-settings>=2.15.0",
+]
+
+[project.scripts]
+mat2 = "mat2:main"
+
+[build-system]
+requires = ["uv_build>=0.12.10,<0.13.0"]
+build-backend = "uv_build"
