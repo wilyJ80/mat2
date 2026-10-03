@@ -1,0 +1,63 @@
+{
+  "landing": {
+    "meta.title": "Torno · integral fica mais fácil quando dá pra ver",
+    "meta.description": "Manda o exercício de integral e o Torno desenha a região, gira o sólido e resolve com você, passo a passo.",
+    "skip": "Pular para o conteúdo",
+    "brand.label": "Torno, página inicial",
+    "theme.toggle": "Mudar tema",
+    "language.label": "Idioma",
+    "cta": "Começar a estudar",
+    "hero.title": "Integral fica mais fácil quando <em>dá pra ver.</em>",
+    "hero.lead": "Manda o exercício da lista. O Torno desenha a região, gira ela até virar sólido e resolve junto com você, uma conta de cada vez.",
+    "hero.figTitle": "A região sob a curva y = raiz de x gira em torno do eixo x e forma um sólido de revolução.",
+    "hero.figCaption": "A região sob <span class=\"math\">y = √x</span> girando em torno do eixo <span class=\"math\">x</span>.",
+    "how.title": "Como funciona",
+    "how.s1.title": "Mande o exercício",
+    "how.s1.text": "Pode colar o enunciado do jeito que está na lista. Não lembra a fórmula? Tudo bem, é pra isso que ele existe.",
+    "how.s2.title": "Olhe o desenho",
+    "how.s2.text": "A região aparece pintada entre as curvas. Nos volumes, um controle gira a região de 0° a 360° e você arrasta o sólido com o mouse pra ver por baixo.",
+    "how.s3.title": "Pergunte até entender",
+    "how.s3.text": "A resolução vem passo a passo, com a notação que o professor usa. Travou num passo? Pergunta. Quer o mesmo sólido girando em torno de <span class=\"math\">x = 3</span>? É só pedir.",
+    "topics.title": "O que dá pra estudar",
+    "topics.lead": "As aplicações da integral definida, que é onde o desenho mais faz falta.",
+    "topics.area.title": "Área entre curvas",
+    "topics.area.text": "Achar onde as curvas se cruzam e qual fica por cima. Metade do exercício é isso.",
+    "topics.volume.title": "Volume de sólidos de revolução",
+    "topics.volume.text": "Discos, arruelas e cascas. O sólido aparece em 3D e você gira até entender por que o raio é aquele.",
+    "topics.arc.title": "Comprimento de arco",
+    "topics.arc.text": "Quanto mede um pedaço de curva. A fórmula é <span class=\"math\">L = ∫ √(1 + [f′(x)]²) dx</span>, e quase sempre a integral é a parte chata.",
+    "topics.surface.title": "Área de superfície de revolução",
+    "topics.surface.text": "A área da casca que se forma quando a curva gira em torno de um eixo. Só a casca, sem as tampas.",
+    "example.title": "Um exercício de verdade",
+    "example.lead": "Esse é clássico de lista. O eixo de rotação é <span class=\"math\">y = −1</span>, não o eixo <span class=\"math\">x</span>, e é aí que muita gente erra o raio.",
+    "example.chatLabel": "Exemplo de conversa com o Torno",
+    "example.chip": "Volume · arruelas",
+    "example.question": "Calcule o volume do sólido obtido ao girar a região entre <span class=\"math\">y = x²</span> e <span class=\"math\">y = 4</span> em torno da reta <span class=\"math\">y = −1</span>.",
+    "example.answer": "As curvas se cruzam em <span class=\"math\">x = ±2</span>. Como o eixo é <span class=\"math\">y = −1</span>, os dois raios ganham +1. Cada fatia vertical vira uma arruela:",
+    "example.figTitle": "Sólido de revolução: a região entre y = x² e y = 4 girada em torno da reta y = −1, formando um cilindro de raio 5 com um furo em forma de parábola.",
+    "example.rotate": "Girar",
+    "example.outer": "Raio externo: <span class=\"math\">R = 4 − (−1) = 5</span>",
+    "example.inner": "Raio interno: <span class=\"math\">r(x) = x² − (−1) = x² + 1</span>",
+    "example.approx": "≈ 227,87 unidades de volume",
+    "example.followUp": "e se girar em torno de <span class=\"math\">y = 5</span>?",
+    "example.input": "Manda a próxima…",
+    "notice.title": "Às vezes ele erra.",
+    "notice.p1": "O Torno é uma IA e pode errar um sinal, uma conta ou um limite de integração. Use pra estudar, não como gabarito: refaça as contas e compare com o que você fez.",
+    "notice.p2": "Se o resultado dele não bater com o seu, desconfie dos dois. Peça outro método ou leve a dúvida pra monitoria.",
+    "footer.tagline": "Feito pra quem está apanhando de integral.",
+    "footer.nav": "Rodapé"
+  },
+  "chat": {
+    "home": "Início",
+    "homeTitle": "Voltar para a página inicial",
+    "language": "Idioma"
+  },
+  "plot": {
+    "dragToRotate": "Arraste para girar",
+    "revolutionHint": "Arraste para girar · use o controle θ para formar o sólido",
+    "loadError": "Não foi possível carregar o gráfico"
+  },
+  "server": {
+    "overload": "O modelo de IA está sobrecarregado no momento. Tente enviar sua pergunta de novo em alguns instantes."
+  }
+}

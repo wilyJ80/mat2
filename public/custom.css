@@ -1,0 +1,54 @@
+/* O KaTeX esconde o MathML (acessibilidade) com position: absolute. Como o
+   contêiner de rolagem das mensagens não é posicionado, esses spans escapavam
+   para o contêiner externo e criavam uma segunda barra de rolagem. */
+.katex {
+  position: relative;
+}
+
+/* Botões que o custom.js adiciona ao cabeçalho. O seletor de idioma
+   (landing/i18n/lib/picker.css) fica ao lado do botão de tema. Início e nova
+   conversa ficam à esquerda: lado a lado no cabeçalho em telas estreitas e numa
+   coluna vertical no canto, fora do cabeçalho (que tem altura fixa), em telas
+   largas, onde sobra espaço à esquerda das mensagens. */
+#header > div:first-child {
+  gap: 4px;
+}
+
+#header > div:first-child > a,
+#header > div:first-child button {
+  width: 36px;
+  height: 36px;
+}
+
+#header > div:first-child svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+@media (min-width: 1024px) {
+  #header > div:first-child {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Os alertas do Chainlit (ex.: "Não foi possível conectar ao servidor") ocupam
+     a largura toda logo abaixo do cabeçalho; o recuo os tira de baixo da coluna. */
+  .alert {
+    margin-left: 60px;
+  }
+}
+
+#torno-lang .torno-lang-trigger {
+  width: 36px;
+  height: 36px;
+  border-color: transparent;
+}
+
+#torno-lang .torno-lang-trigger:hover,
+#torno-lang .torno-lang-trigger[aria-expanded="true"] {
+  border-color: hsl(var(--border));
+}

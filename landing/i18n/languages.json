@@ -1,0 +1,17 @@
+{
+  "default": "pt-BR",
+  "languages": [
+    {
+      "code": "pt-BR",
+      "name": "Português",
+      "short": "PT",
+      "flag": "br"
+    },
+    {
+      "code": "en-US",
+      "name": "English",
+      "short": "EN",
+      "flag": "us"
+    }
+  ]
+}
