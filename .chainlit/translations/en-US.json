@@ -58,7 +58,7 @@
     },
     "chat": {
         "input": {
-            "placeholder": "Type your message here...",
+            "placeholder": "Send an integral problem, or your question...",
             "actions": {
                 "send": "Send message",
                 "stop": "Stop Task",
@@ -132,7 +132,7 @@
             "title": "Settings panel",
             "customize": "Customize your chat settings here"
         },
-        "watermark": "LLMs can make mistakes. Check important info."
+        "watermark": "Torno can make mistakes. Check the math before trusting the answer."
     },
     "threadHistory": {
         "sidebar": {

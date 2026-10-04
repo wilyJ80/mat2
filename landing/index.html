@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">Torno · integral fica mais fácil quando dá pra ver</title>
+<meta name="description" data-i18n-attr="content:meta.description" content="Manda o exercício de integral e o Torno desenha a região, gira o sólido e resolve com você, passo a passo.">
+<meta name="theme-color" content="#FCFCFD" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1016" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&family=Schibsted+Grotesk:wght@500;700;800&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="/i18n/lib/picker.css">
+<script>
+  // Tema e idioma antes da pintura, para não piscar. As chaves são as mesmas do
+  // chat: "vite-ui-theme" é a do Chainlit, "torno-lang" a do public/custom.js.
+  // ?tema=claro | ?tema=escuro força o tema (útil em apresentações).
+  (function () {
+    var root = document.documentElement, theme = null, lang = null;
+    try { theme = localStorage.getItem('vite-ui-theme'); lang = localStorage.getItem('torno-lang'); } catch (e) {}
+    var forced = new URLSearchParams(location.search).get('tema');
+    if (forced === 'escuro') theme = 'dark';
+    if (forced === 'claro') theme = 'light';
+    if (theme === 'dark' || theme === 'light') root.dataset.theme = theme;
+    // Valor provisório; o site.js valida contra landing/i18n/languages.json.
+    if (lang) root.lang = lang;
+  })();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <mask id="tm-front" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48"><rect width="48" height="48" fill="#fff"/><path d="M5 25A19 7 0 0 0 43 25" transform="rotate(-14 24 25)" fill="none" stroke="#000" stroke-width="8"/></mask>
+    <mask id="tm-back" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48"><rect width="48" height="48" fill="#fff"/><path d="M32 9C30 5 23 5 23 12V36C23 43 16 43 14 39" fill="none" stroke="#000" stroke-width="9" stroke-linecap="round"/></mask>
+    <symbol id="torno-mark" viewBox="0 0 48 48">
+      <g fill="none" stroke-linecap="round">
+        <g mask="url(#tm-back)"><path d="M5 25A19 7 0 0 1 43 25" transform="rotate(-14 24 25)" stroke-width="3.5" style="stroke: var(--ring-c)"/></g>
+        <path d="M32 9C30 5 23 5 23 12V36C23 43 16 43 14 39" mask="url(#tm-front)" stroke-width="4.5" style="stroke: var(--int-c)"/>
+        <path d="M5 25A19 7 0 0 0 43 25" transform="rotate(-14 24 25)" stroke-width="3.5" style="stroke: var(--ring-c)"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#conteudo" data-i18n="skip">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" data-i18n-attr="aria-label:brand.label" aria-label="Torno, página inicial">
+      <svg class="mark" aria-hidden="true"><use href="#torno-mark"/></svg>
+      <span>Torno</span>
+    </a>
+    <div class="header-actions">
+      <div id="lang-picker"></div>
+      <button class="icon-btn theme-toggle" type="button" id="theme-toggle" data-i18n-attr="aria-label:theme.toggle;title:theme.toggle" aria-label="Mudar tema" title="Mudar tema">
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="btn btn-sm" href="/chat" data-i18n="cta">Começar a estudar</a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <h1 id="hero-title" data-i18n="hero.title">Integral fica mais fácil quando <em>dá pra ver.</em></h1>
+        <p class="lead" data-i18n="hero.lead">Manda o exercício da lista. O Torno desenha a região, gira ela até virar sólido e resolve junto com você, uma conta de cada vez.</p>
+        <div class="hero-actions">
+          <a class="btn" href="/chat"><span data-i18n="cta">Começar a estudar</span> <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <figure class="hero-figure">
+        <svg viewBox="0 0 480 360" role="img" aria-labelledby="hero-fig-t">
+          <title id="hero-fig-t" data-i18n="hero.figTitle">A região sob a curva y = raiz de x gira em torno do eixo x e forma um sólido de revolução.</title>
+          <path class="hp-body" d="M60 180Q60 120 420 60L420 300Q60 240 60 180Z"/>
+          <line class="hp-axis" x1="24" y1="180" x2="462" y2="180"/>
+          <path class="hp-trace" pathLength="100" d="M150 120A17 60 0 1 0 150 240A17 60 0 1 0 150 120"/>
+          <path class="hp-trace" pathLength="100" d="M240 95A24 85 0 1 0 240 265A24 85 0 1 0 240 95"/>
+          <path class="hp-trace" pathLength="100" d="M330 76A29 104 0 1 0 330 284A29 104 0 1 0 330 76"/>
+          <path class="hp-trace hp-cap" pathLength="100" d="M420 60A34 120 0 1 0 420 300A34 120 0 1 0 420 60"/>
+          <path class="hp-mirror" d="M60 180Q60 240 420 300"/>
+          <g class="hp-region">
+            <path d="M60 180Q60 120 420 60L420 180Z"/>
+            <path class="hp-curve" d="M60 180Q60 120 420 60"/>
+          </g>
+        </svg>
+        <figcaption data-i18n="hero.figCaption">A região sob <span class="math">y = √x</span> girando em torno do eixo <span class="math">x</span>.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="como-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="como-title" data-i18n="how.title">Como funciona</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="step-n">1</span>
+          <h3 data-i18n="how.s1.title">Mande o exercício</h3>
+          <p data-i18n="how.s1.text">Pode colar o enunciado do jeito que está na lista. Não lembra a fórmula? Tudo bem, é pra isso que ele existe.</p>
+        </li>
+        <li>
+          <span class="step-n">2</span>
+          <h3 data-i18n="how.s2.title">Olhe o desenho</h3>
+          <p data-i18n="how.s2.text">A região aparece pintada entre as curvas. Nos volumes, um controle gira a região de 0° a 360° e você arrasta o sólido com o mouse pra ver por baixo.</p>
+        </li>
+        <li>
+          <span class="step-n">3</span>
+          <h3 data-i18n="how.s3.title">Pergunte até entender</h3>
+          <p data-i18n="how.s3.text">A resolução vem passo a passo, com a notação que o professor usa. Travou num passo? Pergunta. Quer o mesmo sólido girando em torno de <span class="math">x = 3</span>? É só pedir.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="topicos-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="topicos-title" data-i18n="topics.title">O que dá pra estudar</h2>
+        <p data-i18n="topics.lead">As aplicações da integral definida, que é onde o desenho mais faz falta.</p>
+      </div>
+      <div class="topics">
+        <article class="topic">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path class="f1" d="M6 34Q24 0 42 34Q24 24 6 34Z"/>
+            <path class="ic-line c1" d="M6 34Q24 0 42 34"/>
+            <path class="ic-line c2" d="M6 34Q24 24 42 34"/>
+          </svg>
+          <div>
+            <h3 data-i18n="topics.area.title">Área entre curvas</h3>
+            <p data-i18n="topics.area.text">Achar onde as curvas se cruzam e qual fica por cima. Metade do exercício é isso.</p>
+          </div>
+        </article>
+        <article class="topic">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path class="ic-line c1" d="M16 7H38M16 41H38"/>
+            <path class="ic-line c1" d="M38 7A9 17 0 0 1 38 41"/>
+            <path class="f3" fill-rule="evenodd" d="M16 7A9 17 0 1 0 16 41A9 17 0 1 0 16 7ZM16 16.5A4 7.5 0 1 1 16 31.5A4 7.5 0 1 1 16 16.5Z"/>
+            <ellipse class="ic-line c3" cx="16" cy="24" rx="9" ry="17"/>
+            <ellipse class="ic-line c3" cx="16" cy="24" rx="4" ry="7.5"/>
+          </svg>
+          <div>
+            <h3 data-i18n="topics.volume.title">Volume de sólidos de revolução</h3>
+            <p data-i18n="topics.volume.text">Discos, arruelas e cascas. O sólido aparece em 3D e você gira até entender por que o raio é aquele.</p>
+          </div>
+        </article>
+        <article class="topic">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path class="ic-line c1" d="M7 38C18 38 20 10 41 10" stroke-width="3"/>
+            <circle class="dot" cx="7" cy="38" r="3.5"/>
+            <circle class="dot" cx="41" cy="10" r="3.5"/>
+          </svg>
+          <div>
+            <h3 data-i18n="topics.arc.title">Comprimento de arco</h3>
+            <p data-i18n="topics.arc.text">Quanto mede um pedaço de curva. A fórmula é <span class="math">L = ∫ √(1 + [f′(x)]²) dx</span>, e quase sempre a integral é a parte chata.</p>
+          </div>
+        </article>
+        <article class="topic">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path class="f1" d="M7 24Q22 9 36 6V42Q22 39 7 24Z"/>
+            <path class="ic-line c1" d="M7 24Q22 9 36 6M7 24Q22 39 36 42"/>
+            <ellipse class="ic-line c3" cx="36" cy="24" rx="6" ry="18"/>
+          </svg>
+          <div>
+            <h3 data-i18n="topics.surface.title">Área de superfície de revolução</h3>
+            <p data-i18n="topics.surface.text">A área da casca que se forma quando a curva gira em torno de um eixo. Só a casca, sem as tampas.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section example" aria-labelledby="exemplo-title">
+    <div class="wrap">
+      <div class="example-copy">
+        <h2 id="exemplo-title" data-i18n="example.title">Um exercício de verdade</h2>
+        <p data-i18n="example.lead">Esse é clássico de lista. O eixo de rotação é <span class="math">y = −1</span>, não o eixo <span class="math">x</span>, e é aí que muita gente erra o raio.</p>
+      </div>
+
+      <div class="chat" role="group" data-i18n-attr="aria-label:example.chatLabel" aria-label="Exemplo de conversa com o Torno">
+        <div class="chat-bar">
+          <span class="brand"><svg class="mark" aria-hidden="true"><use href="#torno-mark"/></svg><span>Torno</span></span>
+          <span class="chip" data-i18n="example.chip">Volume · arruelas</span>
+        </div>
+        <div class="chat-body">
+          <p class="msg-user" data-i18n="example.question">Calcule o volume do sólido obtido ao girar a região entre <span class="math">y = x²</span> e <span class="math">y = 4</span> em torno da reta <span class="math">y = −1</span>.</p>
+
+          <div class="msg-bot">
+            <svg class="avatar" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24"/><g transform="translate(24 24) scale(.7) translate(-24 -24)"><use href="#torno-mark" width="48" height="48"/></g></svg>
+            <div class="bot-content">
+              <p data-i18n="example.answer">As curvas se cruzam em <span class="math">x = ±2</span>. Como o eixo é <span class="math">y = −1</span>, os dois raios ganham +1. Cada fatia vertical vira uma arruela:</p>
+
+              <div class="plot">
+                <svg viewBox="0 0 400 300" role="img" aria-labelledby="ex-fig-t">
+                  <title id="ex-fig-t" data-i18n="example.figTitle">Sólido de revolução: a região entre y = x² e y = 4 girada em torno da reta y = −1, formando um cilindro de raio 5 com um furo em forma de parábola.</title>
+                  <path class="ex-cap-back" d="M100 50A22 100 0 0 0 100 250"/>
+                  <path class="ex-ghost" d="M100 250Q200 90 300 250Z"/>
+                  <path class="ex-c1-ghost" d="M100 250Q200 90 300 250"/>
+                  <path class="ex-edge" d="M100 250H300"/>
+                  <path class="ex-region" d="M100 50Q200 210 300 50Z"/>
+                  <path class="ex-c1" d="M100 50Q200 210 300 50"/>
+                  <path class="ex-c2" d="M100 50H300"/>
+                  <line class="hp-axis" x1="56" y1="150" x2="344" y2="150"/>
+                  <path class="ex-cap" d="M100 50A22 100 0 0 1 100 250"/>
+                  <ellipse class="ex-cap" cx="300" cy="150" rx="22" ry="100"/>
+                  <text x="182" y="40">y = 4</text>
+                  <text x="212" y="112">y = x²</text>
+                  <text x="330" y="140">y = −1</text>
+                </svg>
+                <div class="slider" aria-hidden="true">
+                  <span data-i18n="example.rotate">Girar</span>
+                  <span class="slider-track"></span>
+                  <span class="math">360°</span>
+                </div>
+              </div>
+
+              <ol class="steps-math">
+                <li data-i18n="example.outer">Raio externo: <span class="math">R = 4 − (−1) = 5</span></li>
+                <li data-i18n="example.inner">Raio interno: <span class="math">r(x) = x² − (−1) = x² + 1</span></li>
+                <li><span class="math">V = π <span class="int"><span class="int-sign">∫</span><span class="int-lim"><span>2</span><span>−2</span></span></span> [ 25 − (x² + 1)² ] dx = π <span class="int"><span class="int-sign">∫</span><span class="int-lim"><span>2</span><span>−2</span></span></span> (24 − 2x² − x⁴) dx</span></li>
+              </ol>
+
+              <div class="result">
+                <span class="math">V = 1088π/15</span>
+                <small data-i18n="example.approx">≈ 227,87 unidades de volume</small>
+              </div>
+            </div>
+          </div>
+
+          <p class="msg-user follow" data-i18n="example.followUp">e se girar em torno de <span class="math">y = 5</span>?</p>
+        </div>
+        <div class="chat-input" aria-hidden="true" data-i18n="example.input">Manda a próxima…</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section notice" aria-labelledby="aviso-title">
+    <div class="wrap">
+      <h2 id="aviso-title" data-i18n="notice.title">Às vezes ele erra.</h2>
+      <div>
+        <p data-i18n="notice.p1">O Torno é uma IA e pode errar um sinal, uma conta ou um limite de integração. Use pra estudar, não como gabarito: refaça as contas e compare com o que você fez.</p>
+        <p data-i18n="notice.p2">Se o resultado dele não bater com o seu, desconfie dos dois. Peça outro método ou leve a dúvida pra monitoria.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="brand" href="/" data-i18n-attr="aria-label:brand.label" aria-label="Torno, página inicial">
+      <svg class="mark" aria-hidden="true"><use href="#torno-mark"/></svg>
+      <span>Torno</span>
+    </a>
+    <p data-i18n="footer.tagline">Feito pra quem está apanhando de integral.</p>
+    <nav class="footer-links" data-i18n-attr="aria-label:footer.nav" aria-label="Rodapé">
+      <a href="/chat" data-i18n="cta">Começar a estudar</a>
+      <span>© 2026 Torno</span>
+    </nav>
+  </div>
+</footer>
+<script src="/i18n/lib/core.js"></script>
+<script src="/i18n/lib/picker.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

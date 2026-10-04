@@ -1,0 +1,63 @@
+{
+  "landing": {
+    "meta.title": "Torno · integrals get easier when you can see them",
+    "meta.description": "Send your integral problem and Torno draws the region, spins the solid and works through it with you, step by step.",
+    "skip": "Skip to content",
+    "brand.label": "Torno, home page",
+    "theme.toggle": "Toggle theme",
+    "language.label": "Language",
+    "cta": "Start studying",
+    "hero.title": "Integrals get easier when <em>you can see them.</em>",
+    "hero.lead": "Send the problem from your problem set. Torno draws the region, spins it into a solid and solves it with you, one step at a time.",
+    "hero.figTitle": "The region under the curve y = square root of x rotates around the x-axis and forms a solid of revolution.",
+    "hero.figCaption": "The region under <span class=\"math\">y = √x</span> rotating around the <span class=\"math\">x</span>-axis.",
+    "how.title": "How it works",
+    "how.s1.title": "Send the problem",
+    "how.s1.text": "Paste the question just as it appears on your problem set. Don't remember the formula? That's fine, that's what it's for.",
+    "how.s2.title": "Look at the drawing",
+    "how.s2.text": "The region shows up shaded between the curves. For volumes, a slider spins the region from 0° to 360° and you drag the solid with your mouse to see it from below.",
+    "how.s3.title": "Ask until it clicks",
+    "how.s3.text": "The solution comes step by step, in the notation your professor uses. Stuck on a step? Ask. Want the same solid rotating around <span class=\"math\">x = 3</span>? Just ask.",
+    "topics.title": "What you can study",
+    "topics.lead": "Applications of the definite integral, where a drawing helps the most.",
+    "topics.area.title": "Area between curves",
+    "topics.area.text": "Finding where the curves cross and which one is on top. That's half the problem.",
+    "topics.volume.title": "Volume of solids of revolution",
+    "topics.volume.text": "Disks, washers and shells. The solid shows up in 3D and you rotate it until you see why the radius is what it is.",
+    "topics.arc.title": "Arc length",
+    "topics.arc.text": "How long a piece of a curve is. The formula is <span class=\"math\">L = ∫ √(1 + [f′(x)]²) dx</span>, and the integral is almost always the annoying part.",
+    "topics.surface.title": "Surface area of revolution",
+    "topics.surface.text": "The area of the shell that forms when the curve rotates around an axis. Just the shell, no caps.",
+    "example.title": "A real problem",
+    "example.lead": "A problem-set classic. The axis of rotation is <span class=\"math\">y = −1</span>, not the <span class=\"math\">x</span>-axis, and that's where a lot of people get the radius wrong.",
+    "example.chatLabel": "Example conversation with Torno",
+    "example.chip": "Volume · washers",
+    "example.question": "Find the volume of the solid obtained by rotating the region between <span class=\"math\">y = x²</span> and <span class=\"math\">y = 4</span> around the line <span class=\"math\">y = −1</span>.",
+    "example.answer": "The curves cross at <span class=\"math\">x = ±2</span>. Since the axis is <span class=\"math\">y = −1</span>, both radii gain +1. Each vertical slice becomes a washer:",
+    "example.figTitle": "Solid of revolution: the region between y = x² and y = 4 rotated around the line y = −1, forming a cylinder of radius 5 with a parabola-shaped hole.",
+    "example.rotate": "Rotate",
+    "example.outer": "Outer radius: <span class=\"math\">R = 4 − (−1) = 5</span>",
+    "example.inner": "Inner radius: <span class=\"math\">r(x) = x² − (−1) = x² + 1</span>",
+    "example.approx": "≈ 227.87 cubic units",
+    "example.followUp": "what if it rotates around <span class=\"math\">y = 5</span>?",
+    "example.input": "Send the next one…",
+    "notice.title": "Sometimes it gets it wrong.",
+    "notice.p1": "Torno is an AI and can get a sign, a calculation or an integration limit wrong. Use it to study, not as an answer key: redo the math and compare it with yours.",
+    "notice.p2": "If its result doesn't match yours, be suspicious of both. Ask for another method or take the question to office hours.",
+    "footer.tagline": "Made for anyone struggling with integrals.",
+    "footer.nav": "Footer"
+  },
+  "chat": {
+    "home": "Home",
+    "homeTitle": "Back to the home page",
+    "language": "Language"
+  },
+  "plot": {
+    "dragToRotate": "Drag to rotate",
+    "revolutionHint": "Drag to rotate · use the θ slider to build the solid",
+    "loadError": "Could not load the plot"
+  },
+  "server": {
+    "overload": "The AI model is overloaded right now. Please send your question again in a moment."
+  }
+}

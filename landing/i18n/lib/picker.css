@@ -1,0 +1,87 @@
+/* Seletor de idioma (TornoI18n.picker), usado na homepage e no chat.
+   Usa os tokens de cor do tema, que as duas páginas definem com os mesmos nomes. */
+.torno-lang-picker {
+  position: relative;
+  display: inline-flex;
+}
+
+.torno-lang-trigger {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.torno-lang-trigger:hover,
+.torno-lang-trigger[aria-expanded="true"] {
+  background: hsl(var(--muted));
+}
+
+.torno-lang-trigger:focus-visible,
+.torno-lang-item:focus-visible {
+  outline: 3px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+.torno-flag {
+  display: block;
+  width: 22px;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px hsl(var(--foreground) / 0.12);
+  object-fit: cover;
+}
+
+.torno-lang-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 168px;
+  padding: 6px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 14px;
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  box-shadow: 0 16px 40px -16px hsl(228 40% 5% / 0.45);
+}
+
+.torno-lang-menu[hidden] {
+  display: none;
+}
+
+.torno-lang-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.torno-lang-item:hover {
+  background: hsl(var(--muted));
+}
+
+.torno-lang-item[aria-checked="true"] {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  font-weight: 700;
+}
