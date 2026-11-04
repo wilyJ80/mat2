@@ -29,7 +29,7 @@
     "topics.surface.title": "Área de superfície de revolução",
     "topics.surface.text": "A área da casca que se forma quando a curva gira em torno de um eixo. Só a casca, sem as tampas.",
     "example.title": "Um exercício de verdade",
-    "example.lead": "Esse é clássico de lista. O eixo de rotação é <span class=\"math\">y = −1</span>, não o eixo <span class=\"math\">x</span>, e é aí que muita gente erra o raio.",
+    "example.lead": "Esse é clássico de lista. O eixo de rotação é <span class=\"math\">y = −1</span>, não o eixo <span class=\"math\">x</span>, e é aí que muita gente erra o raio. Experimente mover ou manipular o gráfico: ele é todo seu.",
     "example.chatLabel": "Exemplo de conversa com o Torno",
     "example.chip": "Volume · arruelas",
     "example.question": "Calcule o volume do sólido obtido ao girar a região entre <span class=\"math\">y = x²</span> e <span class=\"math\">y = 4</span> em torno da reta <span class=\"math\">y = −1</span>.",

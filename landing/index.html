@@ -197,27 +197,7 @@
               <p data-i18n="example.answer">As curvas se cruzam em <span class="math">x = ±2</span>. Como o eixo é <span class="math">y = −1</span>, os dois raios ganham +1. Cada fatia vertical vira uma arruela:</p>
 
               <div class="plot">
-                <svg viewBox="0 0 400 300" role="img" aria-labelledby="ex-fig-t">
-                  <title id="ex-fig-t" data-i18n="example.figTitle">Sólido de revolução: a região entre y = x² e y = 4 girada em torno da reta y = −1, formando um cilindro de raio 5 com um furo em forma de parábola.</title>
-                  <path class="ex-cap-back" d="M100 50A22 100 0 0 0 100 250"/>
-                  <path class="ex-ghost" d="M100 250Q200 90 300 250Z"/>
-                  <path class="ex-c1-ghost" d="M100 250Q200 90 300 250"/>
-                  <path class="ex-edge" d="M100 250H300"/>
-                  <path class="ex-region" d="M100 50Q200 210 300 50Z"/>
-                  <path class="ex-c1" d="M100 50Q200 210 300 50"/>
-                  <path class="ex-c2" d="M100 50H300"/>
-                  <line class="hp-axis" x1="56" y1="150" x2="344" y2="150"/>
-                  <path class="ex-cap" d="M100 50A22 100 0 0 1 100 250"/>
-                  <ellipse class="ex-cap" cx="300" cy="150" rx="22" ry="100"/>
-                  <text x="182" y="40">y = 4</text>
-                  <text x="212" y="112">y = x²</text>
-                  <text x="330" y="140">y = −1</text>
-                </svg>
-                <div class="slider" aria-hidden="true">
-                  <span data-i18n="example.rotate">Girar</span>
-                  <span class="slider-track"></span>
-                  <span class="math">360°</span>
-                </div>
+                <div id="landing-plot" style="width: 100%; aspect-ratio: 4 / 3; touch-action: none;"></div>
               </div>
 
               <ol class="steps-math">
